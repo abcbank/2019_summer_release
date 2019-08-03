@@ -1,0 +1,30 @@
+library ieee;
+use ieee.std_logic_1164.alll;
+use ieee.std_logic_unsigned.all;
+
+entity mux4x1_if is
+	PORT{ 	A : 
+		B : in std_logic;
+		C : in std_logic;
+		D : in std_logic;
+		Y : out std_logic;
+		SEL : in std_logic_vector (length - 1 down to 0)
+};
+
+architecture BEHAVE of mux4x1_if is
+begin
+	process(A,B,C,D,SEL)
+	begin :
+		if(SEL = "00") then -- 우선 순위를 주의할것.
+			Y <= A;
+		elsif(SEL = "01") then
+			Y<=B;
+		elsif(SEL = "10")
+
+
+			Y<=C;
+		else		-- else 구문 없으면 else NULL을 생략된거라고 본다. 즉 이전상태를 유지함.
+			Y<=D;
+		end if;
+	end process;
+end BEHAVE;
